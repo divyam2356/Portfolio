@@ -109,17 +109,22 @@ const hackathons = [
 <div class="section-separator"></div>
 
 <!-- Certificate Modal Viewer -->
-<div id="hack-cert-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-canvas/80 backdrop-blur-md p-4 sm:p-8">
-  <div class="relative w-full max-w-5xl h-[80vh] rounded-2xl bg-canvas-elevated border border-hairline/50 overflow-hidden shadow-2xl flex flex-col">
-    <div class="flex items-center justify-between px-5 py-3 border-b border-hairline/50 shrink-0">
+<div id="hack-cert-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-canvas/80 backdrop-blur-md p-3 sm:p-6">
+  <div class="relative w-full max-w-5xl h-[85vh] rounded-2xl bg-canvas-elevated border border-hairline/50 overflow-hidden shadow-2xl flex flex-col">
+    <div class="flex items-center justify-between px-5 py-3.5 border-b border-hairline/50 shrink-0 bg-canvas-elevated z-10">
       <h3 id="hack-cert-modal-title" class="text-sm font-semibold text-ink truncate pr-4"></h3>
-      <button id="hack-cert-modal-close" class="p-1.5 rounded-lg text-muted hover:text-ink hover:bg-surface transition-all" aria-label="Close">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 6 6 18M6 6l12 12"/>
-        </svg>
-      </button>
+      <div class="flex items-center gap-2">
+        <a id="hack-cert-modal-open-new" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-lg bg-accent/15 text-accent border border-accent/20 hover:bg-accent/25 transition-all">
+          Open in New Tab ↗
+        </a>
+        <button id="hack-cert-modal-close" class="p-1.5 rounded-lg text-muted hover:text-ink hover:bg-surface transition-all" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
     </div>
-    <div id="hack-cert-modal-content" class="flex-1 overflow-auto p-4 flex items-center justify-center bg-surface/50"></div>
+    <div id="hack-cert-modal-content" class="flex-1 w-full h-full p-2 sm:p-4 flex items-center justify-center bg-surface/50 overflow-hidden"></div>
   </div>
 </div>
 
@@ -127,24 +132,44 @@ const hackathons = [
   const hackModal = document.getElementById("hack-cert-modal")!;
   const hackModalTitle = document.getElementById("hack-cert-modal-title")!;
   const hackModalContent = document.getElementById("hack-cert-modal-content")!;
+  const hackOpenNewBtn = document.getElementById("hack-cert-modal-open-new") as HTMLAnchorElement;
   const hackCloseBtn = document.getElementById("hack-cert-modal-close")!;
 
   function openHackCertModal(title: string, pdfPath: string, imagePath: string) {
     hackModalTitle.textContent = title;
     hackModalContent.innerHTML = "";
+    const activePath = pdfPath || imagePath;
+    if (hackOpenNewBtn) {
+      hackOpenNewBtn.href = activePath;
+    }
+
     if (pdfPath) {
-      const iframe = document.createElement("iframe");
-      iframe.src = pdfPath;
-      iframe.className = "w-full h-full rounded-lg border-0";
-      iframe.title = title;
-      hackModalContent.appendChild(iframe);
+      const objectEl = document.createElement("object");
+      objectEl.data = pdfPath;
+      objectEl.type = "application/pdf";
+      objectEl.className = "w-full h-full rounded-lg border-0 min-h-[400px]";
+      objectEl.innerHTML = `
+        <div class="flex flex-col items-center justify-center h-full p-6 text-center bg-canvas-elevated rounded-xl border border-hairline/50 max-w-md mx-auto">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-accent mb-3">
+            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+          <p class="text-sm text-body font-medium mb-1">Viewing Certificate PDF</p>
+          <p class="text-xs text-muted mb-4">If the preview does not display automatically in your browser:</p>
+          <a href="${pdfPath}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-xs font-semibold bg-accent text-white hover:bg-accent/90 transition-colors shadow-lg">
+            Open PDF in New Tab ↗
+          </a>
+        </div>
+      `;
+      hackModalContent.appendChild(objectEl);
     } else if (imagePath) {
       const img = document.createElement("img");
       img.src = imagePath;
       img.alt = title;
-      img.className = "max-w-full max-h-full object-contain rounded-lg";
+      img.className = "max-w-full max-h-full object-contain rounded-lg shadow-xl";
       hackModalContent.appendChild(img);
     }
+
     hackModal.classList.remove("hidden");
     hackModal.classList.add("flex");
     document.body.style.overflow = "hidden";
