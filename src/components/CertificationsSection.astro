@@ -1,5 +1,14 @@
 ---
-const certifications = [
+interface Certification {
+  title: string;
+  issuer: string;
+  description: string;
+  pdfPath?: string;
+  imagePath?: string;
+  verified: boolean;
+}
+
+const certifications: Certification[] = [
   {
     title: "Oracle Cloud Infrastructure — Generative AI Certified Professional",
     issuer: "Oracle · Generative AI",
