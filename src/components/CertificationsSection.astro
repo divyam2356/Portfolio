@@ -8,12 +8,14 @@ interface Certification {
   verified: boolean;
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const certifications: Certification[] = [
   {
     title: "Oracle Cloud Infrastructure — Generative AI Certified Professional",
     issuer: "Oracle · Generative AI",
     description: "Covers OCI generative AI services, LLM deployment, fine-tuning strategies, and production-scale AI infrastructure on Oracle Cloud.",
-    pdfPath: `${import.meta.env.BASE_URL}certificates/eCertificate.pdf`,
+    pdfPath: `${base}/certificates/eCertificate.pdf`,
     verified: true,
   },
 ];
