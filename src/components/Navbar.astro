@@ -1,0 +1,83 @@
+---
+const navItems = [
+  { label: "Home", href: "#home", key: "home" },
+  { label: "Experience", href: "#experience", key: "experience" },
+  { label: "Projects", href: "#projects", key: "projects" },
+  { label: "About", href: "#about", key: "about" },
+  { label: "Skills", href: "#skills", key: "skills" },
+  { label: "Hackathons", href: "#hackathons", key: "hackathons" },
+  { label: "Contact", href: "#contact", key: "contact" },
+];
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+>
+  <nav class="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-18">
+    <a href="/" class="text-lg font-semibold tracking-tight shrink-0">
+      <span class="gradient-text">D</span><span class="text-ink">ivyam</span><span class="text-accent">S</span><span class="text-ink">ingh</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-1">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          data-nav={item.key}
+          class="px-3.5 py-2 text-sm font-medium rounded-full transition-colors duration-200 text-muted hover:text-ink"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+
+    <button
+      id="mobile-toggle"
+      class="md:hidden p-2 -mr-2 text-muted hover:text-ink transition-colors"
+      aria-label="Toggle menu"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+</header>
+
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-canvas/95 backdrop-blur-xl pt-20 px-5 hidden md:hidden">
+  <div class="flex flex-col gap-1">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        data-nav={item.key}
+        class="text-left px-4 py-3 text-lg font-medium rounded-lg transition-colors text-muted hover:text-ink hover:bg-canvas-elevated mobile-nav-link"
+      >
+        {item.label}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById("mobile-toggle");
+  const menu = document.getElementById("mobile-menu");
+
+  toggle?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      menu?.classList.add("hidden");
+    });
+  });
+
+  // Navbar scroll effect
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add("bg-canvas/80", "backdrop-blur-xl", "border-b", "border-hairline/50");
+    } else {
+      navbar?.classList.remove("bg-canvas/80", "backdrop-blur-xl", "border-b", "border-hairline/50");
+    }
+  }, { passive: true });
+</script>

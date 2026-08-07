@@ -1,0 +1,78 @@
+---
+---
+
+<section id="about" class="relative py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+    <div class="mb-12 md:mb-16 reveal">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3 block font-mono">
+        About
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink">
+        A bit about me.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <div class="space-y-5 reveal reveal-delay-1">
+        <p class="text-base sm:text-lg text-body leading-relaxed">
+          I'm <span class="text-ink font-medium">Divyam Singh</span>, a
+          <span class="text-ink font-medium">Full Stack AI Developer</span> with deep expertise in
+          <span class="text-accent font-medium">Transformer architectures</span>,
+          <span class="text-accent-light font-medium">computer vision</span>, and
+          <span class="text-accent font-medium">agentic AI systems</span>.
+          I've built a 19.3M parameter LLM from scratch and specialize in
+          video analytics and real-time AI pipelines.
+        </p>
+        <p class="text-sm sm:text-base text-body leading-relaxed">
+          From training custom Transformers with CUDA-optimized attention to
+          architecting full-stack applications with real-time AI workflows, I
+          work at the intersection of <span class="text-accent font-medium">deep learning research</span> and
+          <span class="text-accent-light font-medium">production engineering</span>.
+        </p>
+        <p class="text-sm sm:text-base text-body leading-relaxed">
+          Currently an AI Engineer intern at Graymatics, building
+          CCTV-based intrusion detection with YOLOv8 and containerized
+          deployment pipelines. Previously at Gluck, I architected a
+          freelance platform for 200+ users. I hold a B.E. in Computer
+          Engineering from I2IT, Pune.
+        </p>
+
+
+      </div>
+
+      <div class="relative flex items-center justify-center reveal reveal-delay-2 lg:sticky lg:top-24">
+        <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 animate-[scale-in_0.8s_ease_0.4s_both]">
+          <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/20 via-accent/5 to-transparent animate-gradient" style="background-size: 200% 200%;"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-[88%] h-[88%] rounded-2xl bg-canvas-elevated border border-hairline/50 flex items-center justify-center hover-scale">
+              <div class="text-center p-6 sm:p-8">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center animate-[glow-pulse_3s_ease-in-out_infinite]">
+                  <span class="text-2xl sm:text-3xl font-semibold text-white">DS</span>
+                </div>
+                <p class="text-sm font-medium text-ink mb-1">Divyam Singh</p>
+                <p class="text-xs text-body typing-cursor">Full Stack AI Developer</p>
+                <div class="flex justify-center gap-2 mt-3">
+                  {["PyTorch", "Next.js", "CUDA"].map((tag) => (
+                    <span class="px-2 py-0.5 text-[9px] font-mono rounded-md bg-accent/10 text-accent border border-accent/10 hover-glow">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {[...Array(3)].map((_, i) => (
+            <div
+              class="absolute rounded-full bg-accent/10 animate-float"
+              style={`width: ${8 + i * 4}px; height: ${8 + i * 4}px; top: ${20 + i * 25}%; right: ${-5 + i * 3}%; animation-delay: ${i * 2}s;`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section divider -->
+<div class="section-separator"></div>

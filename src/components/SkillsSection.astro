@@ -1,0 +1,110 @@
+---
+const skillGroups = [
+  {
+    name: "AI / ML",
+    icon: "🧠",
+    skills: [
+      "PyTorch",
+      "Hugging Face",
+      "Transformers",
+      "CUDA",
+      "YOLOv8",
+      "Attention Mechanisms",
+      "Multi-Head Attention",
+      "Custom Tokenizers",
+      "CNNs",
+      "Computer Vision",
+      "LLM Training",
+    ],
+  },
+  {
+    name: "Data / ML Ops",
+    icon: "📊",
+    skills: [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "OpenCV",
+      "Scikit-Learn",
+      "Weights & Biases",
+      "ONNX",
+      "Docker",
+      "Data Pipelines",
+      "Model Optimization",
+    ],
+  },
+  {
+    name: "Backend",
+    icon: "⚙️",
+    skills: [
+      "Python",
+      "FastAPI",
+      "Flask",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "MongoDB",
+      "REST APIs",
+      "Authentication",
+      "Payment Integration",
+      "WebSocket",
+    ],
+  },
+  {
+    name: "Frontend / Infra",
+    icon: "🚀",
+    skills: [
+      "TypeScript",
+      "JavaScript",
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "HTML/CSS",
+      "Framer Motion",
+      "Git",
+      "GitHub",
+      "CI/CD",
+      "Linux",
+    ],
+  },
+];
+---
+
+<section id="skills" class="relative py-24 md:py-32">
+  <div class="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+    <div class="mb-12 md:mb-16 reveal">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3 block font-mono">
+        Expertise
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink">
+        Skills &amp; technologies.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+      {skillGroups.map((group, groupIndex) => (
+        <div
+          class={`reveal reveal-delay-${Math.min(groupIndex + 1, 4)} rounded-2xl bg-canvas-elevated border border-hairline/50 p-5 sm:p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-[0_4px_20px_rgba(124,58,237,0.08)] group/skill hover-lift`}
+        >
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xl">{group.icon}</span>
+            <h3 class="text-base sm:text-lg font-semibold text-ink">
+              {group.name}
+            </h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {group.skills.map((skill) => (
+              <span class="px-2.5 py-1 text-[11px] font-medium font-mono rounded-lg bg-accent/10 text-accent/80 border border-accent/10 hover:bg-accent/15 hover:border-accent/25 transition-all duration-200 cursor-default">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Section divider -->
+<div class="section-separator"></div>

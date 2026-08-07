@@ -1,0 +1,78 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Portfolio of Divyam Singh — Full Stack AI Developer specializing in Transformer architectures, computer vision, and agentic systems.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-canvas text-ink font-sans antialiased overflow-x-hidden animate-[fade-in_0.5s_ease_both]">
+    <slot />
+  </body>
+</html>
+
+<script>
+  // Intersection Observer for reveal animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+  );
+
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+  // Active nav section tracking
+  const navLinks = document.querySelectorAll("[data-nav]");
+  const sections = ["home", "experience", "projects", "about", "skills", "hackathons", "contact"];
+
+  function updateActiveNav() {
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const el = document.getElementById(sections[i]);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 120) {
+          navLinks.forEach((link) => {
+            const target = link.getAttribute("data-nav");
+            if (target === sections[i]) {
+              link.classList.add("text-ink");
+              link.classList.remove("text-muted");
+            } else {
+              link.classList.remove("text-ink");
+              link.classList.add("text-muted");
+            }
+          });
+          break;
+        }
+      }
+    }
+  }
+
+  window.addEventListener("scroll", updateActiveNav, { passive: true });
+  updateActiveNav();
+</script>

@@ -1,0 +1,39 @@
+---
+---
+
+<div class="fixed top-0 left-0 right-0 h-[2px] z-[60]">
+  <div
+    id="scroll-progress"
+    class="h-full bg-gradient-to-r from-accent via-accent-light to-accent origin-left transition-[width] duration-150"
+    style="width: 0%"
+  >
+  </div>
+  <div
+    id="scroll-glow"
+    class="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-transparent via-accent/50 to-transparent blur-sm opacity-0 transition-opacity duration-300"
+    style="width: 0%"
+  >
+  </div>
+</div>
+
+<script>
+  const progressBar = document.getElementById("scroll-progress");
+  const scrollGlow = document.getElementById("scroll-glow");
+
+  function updateScrollProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+
+    if (progressBar) {
+      progressBar.style.width = `${scrollPercent}%`;
+    }
+    if (scrollGlow) {
+      scrollGlow.style.left = `calc(${scrollPercent}% - 40px)`;
+      scrollGlow.style.opacity = scrollPercent > 0 ? "1" : "0";
+    }
+  }
+
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  updateScrollProgress();
+</script>

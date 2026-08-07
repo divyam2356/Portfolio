@@ -1,0 +1,136 @@
+---
+---
+
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background effects -->
+  <div class="absolute inset-0 mesh-gradient opacity-60"></div>
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/[0.05] rounded-full blur-[120px] animate-pulse-glow"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/[0.03] rounded-full blur-[120px] animate-pulse-glow" style="animation-delay: 2s;"></div>
+
+  <!-- Particle canvas -->
+  <canvas id="particles" class="absolute inset-0 w-full h-full"></canvas>
+
+  <div class="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 text-center">
+    <!-- Badge -->
+    <div class="mb-8 animate-[scale-in_0.5s_ease_0.2s_both]">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20 font-mono glow-border">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+        open to opportunities
+      </span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] mb-6 animate-[fade-in-up_0.7s_ease_0.3s_both]">
+      <span class="block text-ink">Building the</span>
+      <span class="block gradient-text">future with AI.</span>
+    </h1>
+
+    <!-- Subheadline -->
+    <p class="text-base sm:text-lg md:text-xl text-body max-w-xl mx-auto mb-10 leading-relaxed animate-[fade-in-up_0.6s_ease_0.5s_both]">
+      Full Stack AI Developer specializing in Transformer architectures,
+      computer vision, and agentic systems. Built a 19.3M parameter
+      LLM from scratch. Ship full-stack products end to end.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-14 animate-[fade-in-up_0.6s_ease_0.7s_both]">
+      <a
+        href="#projects"
+        class="group relative px-7 py-3 rounded-full font-medium text-sm bg-ink text-canvas overflow-hidden magnetic-btn w-full sm:w-auto text-center"
+      >
+        <span class="relative z-10">View Projects</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-accent to-accent-light opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </a>
+      <a
+        href="#contact"
+        class="px-7 py-3 rounded-full font-medium text-sm text-body border border-hairline hover:border-accent/50 hover:text-accent hover:bg-accent/5 magnetic-btn w-full sm:w-auto text-center"
+      >
+        Contact Me
+      </a>
+    </div>
+
+    <!-- Socials -->
+    <div class="flex items-center justify-center gap-4 animate-[fade-in_0.6s_ease_0.9s_both]">
+      <a href="https://github.com/divyam2356" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="p-2.5 rounded-full text-muted hover:text-accent hover:bg-accent/10 transition-all duration-200">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/dswebd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-2.5 rounded-full text-muted hover:text-accent hover:bg-accent/10 transition-all duration-200">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="mailto:divyamsingh5003@gmail.com" aria-label="Email" class="p-2.5 rounded-full text-muted hover:text-accent hover:bg-accent/10 transition-all duration-200">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <a href="#projects" class="absolute bottom-8 left-1/2 -translate-x-1/2 p-2 text-muted hover:text-accent transition-colors" aria-label="Scroll down">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-[float_2s_ease-in-out_infinite]">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
+  </a>
+</section>
+
+<!-- Section divider -->
+<div class="section-separator"></div>
+
+<script>
+  const canvas = document.getElementById("particles") as HTMLCanvasElement;
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      let particles: { x: number; y: number; vx: number; vy: number; r: number; o: number }[] = [];
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const count = Math.min(Math.floor((canvas.width * canvas.height) / 18000), 60);
+        particles = Array.from({ length: count }, () => ({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 1.5 + 0.5,
+          o: Math.random() * 0.3 + 0.1,
+        }));
+      }
+
+      function animate() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(124, 58, 237, ${p.o})`;
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(124, 58, 237, ${0.05 * (1 - dist / 120)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      resize();
+      animate();
+      window.addEventListener("resize", resize);
+    }
+  }
+</script>

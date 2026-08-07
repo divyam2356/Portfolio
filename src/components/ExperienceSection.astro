@@ -1,0 +1,96 @@
+---
+const experiences = [
+  {
+    role: "AI Engineer (Intern)",
+    company: "Graymatics, India",
+    date: "May 2026 — Present",
+    tech: ["Docker", "FFmpeg", "YOLOv8", "CUDA", "OpenCV"],
+    highlights: [
+      "Developing CCTV-based intrusion detection system using YOLOv8 for real-time person/object tracking.",
+      "Architecting containerized deployment pipeline (Docker) for scalable video processing with FFmpeg.",
+      "Enhancing detection accuracy and reducing false positives by optimizing YOLO architecture parameters.",
+    ],
+  },
+  {
+    role: "Machine Learning Intern",
+    company: "Infotech Brains, India",
+    date: "Sept 2025 — Jan 2026",
+    tech: ["Python", "FastAPI", "Pandas", "NumPy", "Scikit-learn"],
+    highlights: [
+      "Deployed ML models for agricultural weather forecasting using historical meteorological datasets.",
+      "Engineered time-series pipelines (imputation, lag features) to improve signal quality and robustness.",
+      "Benchmarked regression and ensemble models (MAE/RMSE); deployed inference via FastAPI.",
+    ],
+  },
+  {
+    role: "Full Stack Developer",
+    company: "Gluck, Pune",
+    date: "Sept 2024 — July 2025",
+    tech: ["Next.js", "Node.js", "Express.js", "Prisma", "PostgreSQL", "AWS S3", "Socket.io"],
+    highlights: [
+      "Architected a scalable freelance platform for 200+ users with real-time AI workflows and modular API.",
+      "Implemented OAuth via NextAuth and real-time chat using Socket.io with LLM-based moderation.",
+      "Managed cloud infrastructure (AWS S3, RDS) via Prisma; boosted engagement by 40% via UX redesigns.",
+    ],
+  },
+];
+---
+
+<section id="experience" class="relative py-24 md:py-32">
+  <div class="absolute inset-0 mesh-gradient opacity-20 pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+    <div class="mb-12 md:mb-16 reveal">
+      <span class="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3 block font-mono">
+        Career
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink">
+        Experience.
+      </h2>
+    </div>
+
+    <div class="relative">
+      <div class="hidden md:block absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-accent/30 via-hairline to-transparent"></div>
+
+      <div class="space-y-6 md:space-y-8">
+        {experiences.map((exp, expIndex) => (
+          <div class={`reveal reveal-delay-${Math.min(expIndex + 1, 5)} relative`}>
+            <div class="hidden md:flex absolute left-6 top-6 -translate-x-1/2 w-3 h-3 rounded-full bg-accent border-2 border-canvas z-10"></div>
+
+            <div class="md:ml-14 rounded-2xl bg-canvas-elevated border border-hairline/50 p-5 sm:p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-[0_4px_24px_rgba(124,58,237,0.1)] group/exp hover-lift">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+                <div>
+                  <h3 class="font-semibold text-base text-ink mb-0.5">
+                    {exp.role}
+                  </h3>
+                  <p class="text-xs text-muted">
+                    {exp.company} · {exp.date}
+                  </p>
+                </div>
+              </div>
+
+              <ul class="space-y-2 mb-4">
+                {exp.highlights.map((highlight) => (
+                  <li class="flex items-start gap-2 text-sm text-body leading-relaxed">
+                    <span class="shrink-0 mt-1.5 w-1 h-1 rounded-full bg-accent/60"></span>
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+
+              <div class="flex flex-wrap gap-1.5">
+                {exp.tech.map((t) => (
+                  <span class="px-2.5 py-0.5 text-[10px] font-medium font-mono rounded-md bg-accent/10 text-accent/80 border border-accent/10 hover:bg-accent/15 transition-colors duration-200">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
